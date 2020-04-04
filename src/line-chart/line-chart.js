@@ -76,7 +76,7 @@ class LineChart extends AbstractChart {
         const cx =
           paddingRight + (i * (width - paddingRight)) / dataset.data.length;
         const cy =
-          ((baseHeight - this.calcHeight(x, datas, height)) / 4) * 3 +
+          ((baseHeight - this.calcHeight(x, datas, height)) / (4 * 1.6)) * 3 +
           paddingTop;
         const onPress = () => {
           if (!onDataPointClick || hidePointsAtIndex.includes(i)) {
@@ -392,7 +392,7 @@ class LineChart extends AbstractChart {
       );
     const baseHeight = this.calcBaseHeight(datas, height);
     const y = i => {
-      const yHeight = this.calcHeight(dataset.data[i], datas, height);
+      const yHeight = this.calcHeight(dataset.data[i], datas, height) / 1.6;
       return Math.floor(((baseHeight - yHeight) / 4) * 3 + paddingTop);
     };
 
